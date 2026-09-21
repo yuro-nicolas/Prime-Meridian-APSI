@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime Meridian Realty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">Prime Meridian</span>
+      <span class="brand__sub">Realty</span>
+    </a>
+    <input type="checkbox" id="navToggle" class="nav__toggle-input">
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__link is-active">Home</a></li>
+      <li><a href="listings.html" class="nav__link">Listings</a></li>
+      <li><a href="about.html" class="nav__link">About Us</a></li>
+      <li><a href="contact.html" class="nav__link">Contact</a></li>
+    </ul>
+    <label class="nav__toggle" for="navToggle" aria-label="Toggle menu"><span></span></label>
+  </nav>
+</header>
+
+  <section class="section section--muted">
+    <div class="shell">
+      <div class="section__head">
+        <h2>Current listings</h2>
+        <p>A sample of what's active right now.</p>
+      </div>
+      <div class="listing-grid">
+  <a class="card" href="listing-1.html">
+    <div class="card__figure"><svg viewBox="0 0 240 150" role="img" aria-label="Illustration of a craftsman style house">
+      <polygon points="30,70 120,28 210,70" fill="#1E4B3D"/>
+      <rect x="45" y="70" width="150" height="70" fill="#DCE5D9" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="62" y="90" width="26" height="22" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/><rect x="148" y="90" width="26" height="22" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="110" y="98" width="20" height="42" fill="#A9814C"/>
+      <rect x="30" y="140" width="180" height="8" fill="#12241C"/>
+      <line x1="55" y1="140" x2="55" y2="112" stroke="#12241C" stroke-width="4"/>
+      <line x1="185" y1="140" x2="185" y2="112" stroke="#12241C" stroke-width="4"/>
+    </svg></div>
+    <div class="card__body">
+      <span class="card__status" style="background:#2B5E4C">For Sale</span>
+      <div class="card__price">$485,000</div>
+      <div class="card__addr">214 Wynwood Lane</div>
+      <div class="card__city">Elmsford</div>
+      <div class="card__meta">
+        <span>4 bed</span><span>3 bath</span><span>2,350 sqft</span>
+      </div>
+    </div>
+  </a>
+  <a class="card" href="listing-2.html">
+    <div class="card__figure"><svg viewBox="0 0 240 150" role="img" aria-label="Illustration of a modern style house">
+      <rect x="30" y="55" width="180" height="10" fill="#1E4B3D"/>
+      <rect x="40" y="65" width="160" height="75" fill="#DCE5D9" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="52" y="80" width="90" height="45" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="160" y="95" width="26" height="30" fill="#A9814C"/>
+      <rect x="30" y="140" width="180" height="8" fill="#12241C"/>
+    </svg></div>
+    <div class="card__body">
+      <span class="card__status" style="background:#A9814C">Pending</span>
+      <div class="card__price">$612,000</div>
+      <div class="card__addr">88 Harbor Ridge Ct</div>
+      <div class="card__city">Elmsford</div>
+      <div class="card__meta">
+        <span>3 bed</span><span>2 bath</span><span>1,980 sqft</span>
+      </div>
+    </div>
+  </a>
+  <a class="card" href="listing-3.html">
+    <div class="card__figure"><svg viewBox="0 0 240 150" role="img" aria-label="Illustration of a farmhouse style house">
+      <polygon points="35,68 120,26 205,68" fill="#1E4B3D"/>
+      <rect x="50" y="68" width="140" height="72" fill="#DCE5D9" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="65" y="88" width="20" height="18" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/><rect x="100" y="88" width="20" height="18" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/><rect x="150" y="88" width="20" height="18" fill="#FFFFFF" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="108" y="104" width="22" height="36" fill="#A9814C"/>
+      <rect x="42" y="122" width="156" height="10" fill="#A7BEA9" stroke="#12241C" stroke-width="1.5"/>
+      <rect x="30" y="140" width="180" height="8" fill="#12241C"/>
+    </svg></div>
+    <div class="card__body">
+      <span class="card__status" style="background:#2B5E4C">For Sale</span>
+      <div class="card__price">$349,000</div>
+      <div class="card__addr">1407 Maple Grove Rd</div>
+      <div class="card__city">Fairview</div>
+      <div class="card__meta">
+        <span>3 bed</span><span>2 bath</span><span>1,640 sqft</span>
+      </div>
+    </div>
+  </a>
+      </div>
+      <div class="section__foot">
+        <a href="listings.html" class="btn btn--ghost">See all listings</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section__head">
+        <h2>Two services, one point of contact</h2>
+        <p>Most brokers stop at closing. Prime Meridian also represents clients when a transaction, boundary, or title turns into a disagreement.</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <span class="service__tag">Transactions</span>
+          <h3>Buying &amp; selling</h3>
+          <p>Pricing, marketing, showings, offers, and negotiation through to closing — for single-family homes, condos, and small multi-unit properties.</p>
+        </div>
+        <div class="service">
+          <span class="service__tag">Dispute resolution</span>
+          <h3>When a deal goes sideways</h3>
+          <p>Boundary disagreements, contract disputes, and post-closing conflicts, mediated by a broker who understands the transaction itself, not just the paperwork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div>
+        <div class="hero__eyebrow">Prime Meridian Realty</div>
+        <h1>Buying, selling, or untangling a dispute — one broker, start to finish.</h1>
+        <p class="hero__lede">Marcus Reyes handles residential and commercial transactions and, when a deal or a title runs into conflict, the dispute resolution that follows — so you're never handed off partway through.</p>
+        <div class="hero__actions">
+          <a href="about.html" class="btn btn--ghost">Meet the broker</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+</main>
+
+<footer class="site-footer">
+  <div class="shell site-footer__row">
+    <span>&copy; 2026 Prime Meridian Realty. Licensed real estate brokerage.</span>
+    <span>Transactions &amp; dispute resolution, handled by one broker.</span>
+  </div>
+</footer>
+</body>
+</html>
