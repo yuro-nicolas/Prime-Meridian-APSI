@@ -11,13 +11,21 @@ looks exactly like what it is.
 
 At least six entries. One per real use. Every entry needs a commit link.
 
-### YYYY-MM-DD - short title
+2026-09-22 - SVG placeholder graphics
 
-- **Tool:**
-- **What I asked for:**
-- **What it gave back:**
-- **What I kept, what I changed, and why:**
-- **Commit:** https://github.com/YOUR-USERNAME/YOUR-REPO/commit/SHA
+Tool: Claude
+What I asked for: SVG code to use as placeholder images on the frontend, standing in for real photos until they're ready. This was also integrated with my already self made written html code and style.
+What it gave back: Generated inline SVG code (basic shapes: rectangles for walls and windows, polygons for rooflines).
+What I kept, what I changed, and why: Kept as temporary placeholders in the layout I'd already designed; will swap for real images later.
+Commit: https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/3bbca7b7bb8eedfbc1acd59cc963ea991d9138f8
+
+2026-09-22 - CSS styling help
+
+Tool: Claude
+What I asked for: Help writing/styling the CSS for the frontend layout I had already designed.
+What it gave back: Gave me the layout I wanted
+What I kept, what I changed, and why: I kept everything. Like the SVG, this is temporary but most of it got the main feature/style I wanted.
+Commit: https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/600f240ad86f635a82ffcc47b85b745afd0a706b
 
 ## 2. Where the AI got it wrong
 
