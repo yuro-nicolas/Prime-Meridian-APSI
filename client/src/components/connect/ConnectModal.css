@@ -1,0 +1,86 @@
+.connect-modal__overlay {
+  position: fixed;
+  inset: 0;
+  /* Higher than .listing-modal__overlay (70) — this needs to stack on
+     top when opened from "Contact about this property" inside it. */
+  z-index: 80;
+  background: rgba(18, 36, 28, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: connect-fade .18s ease;
+}
+
+.connect-modal {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 36px 32px;
+  box-shadow: 0 32px 64px -24px rgba(10, 26, 18, 0.5);
+  animation: connect-rise .22s cubic-bezier(.2, .8, .2, 1);
+}
+.connect-modal--compact {
+  max-width: 380px;
+  padding: 28px 26px;
+}
+
+.connect-modal h3 { font-size: 1.4rem; margin-bottom: 20px; }
+.connect-modal__context {
+  margin: -14px 0 18px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.connect-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--sage-100);
+  color: var(--ink-soft);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.connect-modal__close:hover { background: var(--sage-150); color: var(--ink); }
+
+.connect-modal__form .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.connect-modal__form label { font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+.connect-modal__form input,
+.connect-modal__form select,
+.connect-modal__form textarea {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 11px 13px;
+  background: var(--surface);
+  width: 100%;
+}
+.connect-modal__form textarea { resize: vertical; min-height: 130px; }
+.connect-modal__form .btn { width: 100%; justify-content: center; margin-top: 4px; }
+
+.connect-modal__done { text-align: center; padding: 20px 0; }
+.connect-modal__done h3 { margin-bottom: 8px; }
+.connect-modal__done p { color: var(--ink-soft); margin-bottom: 24px; }
+
+@keyframes connect-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes connect-rise {
+  from { opacity: 0; transform: translateY(14px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connect-modal__overlay, .connect-modal { animation: none; }
+}

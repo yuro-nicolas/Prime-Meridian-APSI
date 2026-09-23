@@ -1,0 +1,64 @@
+.gallery__viewport {
+  overflow: hidden;
+  /* overflow:hidden clips vertically too, which cuts off a card's
+     top edge the moment it lifts on hover (translateY(-3px) on
+     .card:hover). This padding gives it room to lift without being
+     clipped; the matching negative margin cancels the padding back
+     out so nothing else on the page shifts down. */
+  padding-top: 10px;
+  margin-top: -10px;
+}
+.gallery__track {
+  display: flex;
+  /* width and transform are set inline per-render (see PropertyGallery.jsx) —
+     both depend on the actual item count, not a fixed assumption. */
+}
+.gallery__slide {
+  box-sizing: border-box;
+  padding: 0 14px;
+  min-width: 0;
+}
+.gallery__slide:first-child { padding-left: 0; }
+.gallery__slide:last-child { padding-right: 0; }
+
+.gallery__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+.gallery__arrows { display: flex; gap: 12px; }
+.gallery__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--green-700);
+  background: transparent;
+  color: var(--green-900);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+.gallery__arrow:hover { background: var(--green-700); color: var(--sage-100); transform: translateY(-2px); }
+
+/* A more visible hover for "See all listings" — fills solid green
+   and lifts slightly, echoing the card hover elsewhere on the page. */
+.gallery__view-all.btn--ghost {
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.gallery__view-all.btn--ghost:hover {
+  background: var(--green-700);
+  color: var(--sage-100);
+  border-color: var(--green-700);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .gallery__controls { flex-wrap: wrap; gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__track { transition: none !important; }
+}

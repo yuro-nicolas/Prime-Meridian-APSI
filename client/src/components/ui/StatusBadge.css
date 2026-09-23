@@ -1,0 +1,9 @@
+.status-badge {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 20px;
+  color: var(--surface);
+}
+.status-badge--sm { font-size: 0.72rem; padding: 3px 10px; }
+.status-badge--md { font-size: 0.78rem; padding: 4px 12px; }

@@ -1,0 +1,87 @@
+/* Deliberately dark green here — everything else on Home near this
+   section is white (VideoHero's the exception), so a plain white
+   Services section right after the also-white Listings section blurs
+   the two together. Reusing the brand's dark green (already used for
+   VideoHero, the WorkWithUs banner, and the nav) gives it real
+   presence instead of introducing a new, unrelated color. */
+.services-section {
+  background: var(--green-900);
+  padding: 80px 0;
+}
+
+.services-section__top {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+.services-section__head { margin-bottom: 0; }
+.services-section__head h2 { color: var(--sage-100); }
+.services-section__head p { color: var(--sage-300); }
+.services-section__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--sage-100);
+  border-left: 3px solid var(--brass);
+  padding-left: 22px;
+}
+@media (max-width: 900px) {
+  .services-section__top { grid-template-columns: 1fr; }
+}
+
+.services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.service {
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 32px;
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.4);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px -16px rgba(0, 0, 0, 0.45);
+}
+.service h3 { font-size: 1.25rem; margin-bottom: 12px; }
+.service p { color: var(--ink-soft); }
+.service__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green-700);
+  border: 1px solid var(--sage-300);
+  border-radius: 20px;
+  padding: 3px 12px;
+  margin-bottom: 14px;
+  background: var(--sage-100);
+}
+@media (max-width: 760px) { .services { grid-template-columns: 1fr; } }
+
+.services-section__summary {
+  max-width: 62ch;
+  margin: 44px auto 0;
+  color: var(--sage-300);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.services-section__foot {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.services-section__foot .btn--ghost {
+  color: var(--sage-100);
+  border-color: var(--sage-300);
+}
+.services-section__foot .btn--ghost:hover {
+  background: var(--sage-100);
+  color: var(--green-900);
+}

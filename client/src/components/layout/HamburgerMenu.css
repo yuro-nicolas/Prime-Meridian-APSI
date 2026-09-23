@@ -1,0 +1,106 @@
+.hamburger {
+  position: relative;
+  z-index: 80;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.hamburger:disabled { opacity: 0.5; cursor: wait; }
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--sage-100);
+  border-radius: 2px;
+  transition: transform .28s cubic-bezier(.4, 0, .2, 1), opacity .2s ease, width .2s ease;
+}
+.hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.hamburger-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 75;
+  background: var(--green-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* No horizontal padding here on purpose — .shell (applied to the
+     nav and footer below) provides the exact same left/right inset
+     as the header's own .nav, so the overlay's links line up with
+     the header's Home/Listings/etc. instead of using separate math. */
+  padding: 96px 0 64px;
+  overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .25s ease, visibility 0s linear .25s;
+}
+.hamburger-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .25s ease;
+}
+
+.hamburger-overlay__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 0.15s ease;
+}
+.hamburger-overlay__nav.is-buffering {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: wait;
+}
+.hamburger-overlay__link {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 5vw, 2.8rem);
+  color: var(--sage-300);
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--green-700);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .35s ease, transform .35s ease, color .15s ease;
+}
+.hamburger-overlay.is-open .hamburger-overlay__link {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hamburger-overlay__link:hover,
+.hamburger-overlay__link.is-active {
+  color: var(--sage-100);
+}
+.hamburger-overlay__link.is-active { color: var(--brass); }
+
+.hamburger-overlay__footer {
+  margin-top: 40px;
+  color: var(--sage-300);
+  opacity: 0;
+  transition: opacity .35s ease .3s;
+}
+.hamburger-overlay.is-open .hamburger-overlay__footer { opacity: 1; }
+.hamburger-overlay__brand { font-family: var(--font-display); color: var(--sage-100); font-size: 1.1rem; margin-bottom: 4px; }
+.hamburger-overlay__meta { font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .hamburger-overlay { padding: 88px 0 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger span,
+  .hamburger-overlay,
+  .hamburger-overlay__link,
+  .hamburger-overlay__footer {
+    transition: none !important;
+  }
+}

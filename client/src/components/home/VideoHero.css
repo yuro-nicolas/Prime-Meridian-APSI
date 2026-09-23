@@ -1,0 +1,84 @@
+.video-hero {
+  position: relative;
+  height: 52vh;
+  min-height: 380px;
+  max-height: 640px;
+  overflow: hidden;
+  background: var(--green-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* iframes can't use object-fit, so this is the standard trick:
+   oversize the iframe based on the container's aspect ratio, center
+   it, and let the excess get cropped by .video-hero's overflow:hidden —
+   same visual result as object-fit:cover on a native <video>. */
+.video-hero__yt-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.video-hero__yt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh; /* 16:9 width derived from viewport height */
+  height: 56.25vw; /* 16:9 height derived from viewport width */
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.video-hero__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  background:
+    repeating-linear-gradient(135deg, var(--green-700) 0px, var(--green-700) 2px, var(--green-900) 2px, var(--green-900) 22px);
+}
+.video-hero__placeholder span {
+  color: var(--sage-300);
+  font-size: 0.9rem;
+  max-width: 40ch;
+  border: 1px dashed var(--sage-300);
+  border-radius: var(--radius-s);
+  padding: 12px 18px;
+  background: rgba(18, 36, 28, 0.6);
+}
+
+.video-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 21, 15, 0.35) 0%, rgba(10, 21, 15, 0.55) 100%);
+}
+
+.video-hero__mark {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--sage-100);
+}
+.video-hero__mark h1 {
+  color: var(--sage-100);
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .video-hero { height: 38vh; min-height: 320px; }
+}

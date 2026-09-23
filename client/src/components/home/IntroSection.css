@@ -1,0 +1,44 @@
+.intro-section {
+  position: relative;
+  padding: 96px 0;
+  overflow: hidden;
+}
+.intro-section__bg {
+  position: absolute;
+  inset: -15% 0;
+  background-image: url("/images/services-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+.intro-section__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 21, 15, 0.5) 0%, rgba(10, 21, 15, 0.7) 100%);
+}
+.intro-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: 68ch;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--sage-100);
+}
+.intro-section__content h2 {
+  color: var(--sage-100);
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  line-height: 1.2;
+}
+.intro-section__lede {
+  margin: 18px auto 0;
+  color: var(--sage-300);
+  font-size: 1.05rem;
+  max-width: 56ch;
+}
+.intro-section__actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
