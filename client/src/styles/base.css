@@ -1,0 +1,90 @@
+@import './tokens.css';
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sticky footer: #root fills the viewport height and stacks its
+   children in a column; <main> (the page content) grows to fill
+   whatever space isn't used by the header/footer, so the footer
+   never floats up above the bottom of the screen on a short page. */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1 0 auto;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+  color: var(--green-900);
+  letter-spacing: -0.01em;
+}
+p { margin: 0; }
+button { font-family: inherit; cursor: pointer; }
+input, textarea, select { font-family: inherit; font-size: 1rem; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.shell {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+/* ---------- Buttons (atom) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 12px 22px;
+  border-radius: var(--radius-s);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn--primary { background: var(--green-700); color: var(--sage-100); }
+.btn--primary:hover { background: var(--green-900); }
+.btn--ghost { background: transparent; color: var(--green-900); border-color: var(--green-700); }
+.btn--ghost:hover { background: var(--sage-100); }
+.btn--brass { background: var(--brass); color: var(--green-900); }
+.btn--brass:hover { background: var(--brass-dark); color: var(--sage-100); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ---------- Section shells (used by every page) ---------- */
+.section { padding: 64px 0; }
+.section--muted { background: var(--surface); }
+.section__head { max-width: 60ch; margin-bottom: var(--space-5); }
+.section__head h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.section__head p { margin-top: var(--space-1); color: var(--ink-soft); }
+.section__foot { margin-top: var(--space-4); }
+
+/* ---------- Shared status color mapping ---------- */
+.status--for-sale { background: var(--status-for-sale); }
+.status--pending { background: var(--status-pending); }
+.status--sold { background: var(--status-sold); }
+
+/* ---------- Empty / loading / error state (atom) ---------- */
+.empty { padding: 60px 0; text-align: center; color: var(--ink-soft); }
+.empty--error { color: var(--brass-dark); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
