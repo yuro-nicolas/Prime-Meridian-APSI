@@ -1,0 +1,83 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--green-900);
+  box-shadow: 0 4px 20px -8px rgba(10, 26, 18, 0.35);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 16px var(--space-3);
+  max-width: var(--shell);
+  margin: 0 auto;
+}
+
+.nav__cluster {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: -6px;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px dashed var(--sage-300);
+  border-radius: 50%;
+  color: var(--sage-100);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav__links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  transition: opacity 0.15s ease;
+}
+.nav__links.is-buffering {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: wait;
+}
+.nav__link {
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  color: var(--sage-300);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.nav__link:hover { color: var(--sage-100); }
+.nav__link.is-active {
+  color: var(--sage-100);
+  border-color: var(--brass);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .nav__links { gap: 24px; }
+}
+
+@media (max-width: 760px) {
+  .nav { padding: 14px 20px; }
+  /* Below this width the hamburger's own full-screen overlay is the
+     way to navigate — the inline links would just wrap awkwardly. */
+  .nav__links { display: none; }
+}

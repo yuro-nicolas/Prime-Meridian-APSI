@@ -1,0 +1,98 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 12px 32px -22px rgba(18, 36, 28, 0.2);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  cursor: pointer;
+}
+.card:hover {
+  border-color: var(--green-600);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -18px rgba(18, 36, 28, 0.3);
+}
+.card:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+/* Smaller than before, so the body below has more room for details
+   without the whole card growing. */
+.card__figure {
+  background: var(--sage-100);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.card__figure svg { padding: 14px; box-sizing: border-box; }
+.card__figure img,
+.card__figure svg { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+.card__body {
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-height: 0;
+}
+.card__price { font-family: var(--font-display); font-size: 1.2rem; color: var(--green-900); }
+
+/* Every text field below truncates to one line instead of wrapping —
+   this is what keeps every card the same height regardless of how
+   long an address or city name happens to be. */
+.card__addr {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card__city {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card__meta {
+  display: flex;
+  gap: 12px;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__foot {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-end;
+}
+.card__view-details {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  color: var(--green-700);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .15s ease;
+}
+.card__view-details:hover { color: var(--green-900); }
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+@media (max-width: 980px) { .listing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .listing-grid { grid-template-columns: 1fr; } }

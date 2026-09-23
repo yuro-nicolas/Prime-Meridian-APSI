@@ -1,0 +1,45 @@
+.floating-connect {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  background: var(--green-900);
+  color: var(--sage-100);
+  border: 1px solid var(--green-600);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 16px 32px -12px rgba(10, 26, 18, 0.5);
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease, opacity .2s ease, visibility 0s linear;
+}
+.floating-connect.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, visibility 0s linear .2s;
+}
+.floating-connect:hover {
+  background: var(--green-700);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px -12px rgba(10, 26, 18, 0.55);
+}
+.floating-connect__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brass);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .floating-connect {
+    right: 16px;
+    bottom: 16px;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+  }
+}

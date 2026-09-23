@@ -1,0 +1,21 @@
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brass), var(--green-600));
+  z-index: 90;
+  opacity: 0;
+  transition: width 0.35s ease, opacity 0.15s ease;
+}
+.route-progress.is-active {
+  width: 85%;
+  opacity: 1;
+  transition: width 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-progress { transition: opacity 0.15s ease; }
+  .route-progress.is-active { width: 100%; }
+}

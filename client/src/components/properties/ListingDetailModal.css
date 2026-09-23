@@ -1,0 +1,66 @@
+.listing-modal__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(18, 36, 28, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: listing-modal-fade .18s ease;
+}
+
+.listing-modal {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 88vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--surface);
+  border-radius: var(--radius-m);
+  padding: 40px;
+  box-shadow: 0 32px 64px -24px rgba(10, 26, 18, 0.5);
+  animation: listing-modal-rise .22s cubic-bezier(.2, .8, .2, 1);
+}
+
+.listing-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--sage-100);
+  color: var(--ink-soft);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.listing-modal__close:hover { background: var(--sage-150); color: var(--ink); }
+
+/* Inside the modal, the detail grid loses its page-level back button
+   and gets a bit less breathing room than the standalone page. */
+.listing-modal .detail__back { display: none; }
+.listing-modal .detail__grid { gap: 36px; }
+
+@keyframes listing-modal-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes listing-modal-rise {
+  from { opacity: 0; transform: translateY(14px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 900px) {
+  .listing-modal { padding: 28px 20px; max-height: 92vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .listing-modal__overlay, .listing-modal { animation: none; }
+}
