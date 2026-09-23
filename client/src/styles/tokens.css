@@ -1,0 +1,44 @@
+/* ---------------------------------------------------------
+   Design tokens — the single source of truth for color, type,
+   and spacing. Every component reads from these instead of
+   hardcoding values. See project/03-design-system for the
+   token sheet these values come from.
+---------------------------------------------------------- */
+:root {
+  /* Color */
+  --ink: #17251D;
+  --ink-soft: #48584E;
+  --green-900: #12241C;
+  --green-700: #1E4B3D;
+  --green-600: #2B5E4C;
+  --green-500: #3E7360;
+  --sage-300: #A7BEA9;
+  --sage-150: #DCE5D9;
+  --sage-100: #E9EFE6;
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --brass: #A9814C;
+  --brass-dark: #8A6A3C;
+  --line: #D8DED2;
+  --status-for-sale: #2B5E4C;
+  --status-pending: #A9814C;
+  --status-sold: #6E7A70;
+
+  /* Radius */
+  --radius-s: 3px;
+  --radius-m: 6px;
+
+  /* Type */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Public Sans', sans-serif;
+
+  /* Layout */
+  --shell: 1120px;
+
+  /* Spacing (8px base unit) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+}
