@@ -1,0 +1,104 @@
+.about-company__intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+.about-company__established {
+  color: var(--brass-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.about-company__lede {
+  max-width: 68ch;
+  color: var(--ink-soft);
+  margin-top: 16px;
+  line-height: 1.65;
+}
+.about-company__photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-m);
+  background: repeating-linear-gradient(135deg, var(--sage-150) 0px, var(--sage-150) 2px, var(--sage-100) 2px, var(--sage-100) 24px);
+}
+@media (max-width: 900px) {
+  .about-company__intro-grid { grid-template-columns: 1fr; }
+  .about-company__photo { max-width: 420px; }
+}
+
+/* A hairline border separates this from the intro above it, instead
+   of the two white sections running together with no visual break. */
+.about-company__services {
+  border-top: 1px solid var(--line);
+}
+
+.about-services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.about-service {
+  padding: 26px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  box-shadow: 0 12px 32px -22px rgba(18, 36, 28, 0.2);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.about-service:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -18px rgba(18, 36, 28, 0.3);
+}
+.about-service h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.about-service p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; }
+
+@media (max-width: 980px) { .about-services { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .about-services { grid-template-columns: 1fr; } }
+
+.about-company__approach { background: var(--sage-100); text-align: center; }
+.about-company__approach h2 { margin-bottom: 18px; }
+.about-company__approach p {
+  max-width: 66ch;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+/* Picture-background CTA, matching the treatment used elsewhere
+   (IntroSection, WorkWithUs) — a placeholder pattern + scrim + light
+   text, ready to swap for a real photo the same way those are. */
+.about-company__cta {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0;
+  text-align: center;
+}
+.about-company__cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/about-cta-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--green-900);
+}
+.about-company__cta-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 21, 15, 0.55) 0%, rgba(10, 21, 15, 0.7) 100%);
+}
+.about-company__cta-content { position: relative; z-index: 1; }
+.about-company__cta h3 { margin-bottom: 20px; font-size: 1.3rem; color: var(--sage-100); }
+.about-company__cta .btn--ghost { color: var(--sage-100); border-color: var(--sage-300); }
+.about-company__cta .btn--ghost:hover { background: var(--sage-100); color: var(--green-900); }
+.broker { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 52px; align-items: start; }
+.broker__portrait { background: var(--sage-100); border-radius: var(--radius-m); padding: 28px; }
+.broker__name { font-size: 1.8rem; }
+.broker__title { color: var(--brass-dark); font-weight: 600; margin-top: 6px; }
+.broker__bio { margin-top: 18px; color: var(--ink-soft); }
+.credential-list { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.credential-list li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.credential-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brass); margin-top: 8px; flex-shrink: 0; }
+@media (max-width: 900px) { .broker { grid-template-columns: 1fr; } }
+
+/* Broker section, folded into the same page below the approach block. */
+.about-us__broker { background: var(--surface); }
