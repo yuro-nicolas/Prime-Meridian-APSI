@@ -1,0 +1,11 @@
+/* Current Listings section — white, matching the rest of the site,
+   with a subtle border for separation instead of a color tint (a
+   flat green tint here read as unfinished rather than intentional).
+   Slightly less vertical padding than a standard .section too, since
+   the gallery itself already has visual weight. */
+.listings-section {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 48px 0;
+}
