@@ -202,7 +202,18 @@ The checklist caught that 13 of my commits showed my personal Gmail address as t
 
 ## Screenshots
 
-(add: home page, listings page, listing detail, admin listings, admin inbox)
+**Home**
+![Home page](docs/assets/home.png)
+
+**Listings**
+![Listings page](docs/assets/listings.png)
+
+**About Us**
+![About Us page](docs/assets/about-us.png)
+
+**Contact**
+![Contract Page](docs/assets/contact.png)
+
 
 ## What I would do next
 
