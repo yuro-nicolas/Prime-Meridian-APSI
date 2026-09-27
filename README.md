@@ -6,7 +6,6 @@ A full-stack real estate website where visitors browse property listings and sen
 **API:** (add Render URL)/health
 **Demo video:** (add link in week 3)
 
-![Home page](docs/assets/screenshot-home.png)
 
 ## What it does
 
