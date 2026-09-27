@@ -19,7 +19,7 @@ app.set("trust proxy", 1);
 // Allow the frontend's origin to call this API. In dev, CORS_ORIGIN
 // defaults to "*" so you can open the HTML file directly; set it to
 // your real frontend URL before deploying.
-app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
+app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(express.json());
 
 // simple request logger - handy while developing
