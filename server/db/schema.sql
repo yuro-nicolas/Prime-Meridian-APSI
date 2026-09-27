@@ -1,20 +1,50 @@
--- The complete shape of the database. Safe to run against an empty database,
--- and safe to run twice.
---
--- This file is committed on purpose. Your schema is a fact about your
--- application, not a runtime concern: it should be readable by opening a file
--- rather than by connecting to a server. It is also what lets you move to a
--- hosted database in one command.
+CREATE TABLE IF NOT EXISTS properties (
+  id SERIAL PRIMARY KEY,
 
-CREATE TABLE IF NOT EXISTS sightings (
-  id          SERIAL PRIMARY KEY,
-  place       TEXT        NOT NULL,
-  description TEXT        NOT NULL DEFAULT '',
-  spookiness  INTEGER     NOT NULL CHECK (spookiness BETWEEN 1 AND 5),
-  reported_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  property_code TEXT,         
+  title TEXT,                  
+  property_type TEXT,          
+
+  address TEXT,            
+  city TEXT,
+  map_url TEXT,               
+
+
+  price NUMERIC,                
+  status TEXT DEFAULT 'For Sale'
+    CHECK (status IN ('For Sale', 'For Rent', 'For Lease', 'Pending', 'Sold', 'Rented', 'Leased')),
+  category TEXT
+    CHECK (category IN ('Residential', 'Commercial', 'Industrial', 'Lot / Land', 'Agricultural', 'Special Purpose', 'Mixed-Use')),
+
+  lot_area_sqm NUMERIC,
+  floor_area_sqm NUMERIC,
+  beds INTEGER,
+  baths INTEGER,
+  other_features TEXT,          
+
+  photo_urls TEXT,             
+  video_url TEXT,
+
+  blurb TEXT,                   
+  description TEXT,            
+  other_info TEXT,              
+
+  style TEXT DEFAULT 'cottage',
+
+  is_public BOOLEAN NOT NULL DEFAULT true,
+
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
--- The list page always sorts newest first. Without this the database reads
--- every row and sorts it on each request.
-CREATE INDEX IF NOT EXISTS sightings_reported_at_idx
-  ON sightings (reported_at DESC);
+CREATE TABLE IF NOT EXISTS inquiries (
+  id SERIAL PRIMARY KEY,
+  property_id INTEGER REFERENCES properties(id) ON DELETE SET NULL,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  interested_in TEXT,
+  message TEXT NOT NULL,
+  is_read BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
