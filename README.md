@@ -209,7 +209,6 @@ The checklist caught that 13 of my commits showed my personal Gmail address as t
 - Store admin sessions in the database so logins survive a server restart
 - Add `helmet`, length limits on text fields, and rate limiting on the contact form
 - Let the admin upload listing photos instead of pasting image URLs
-- Add email notifications for new inquiries
 
 ## Author
 
