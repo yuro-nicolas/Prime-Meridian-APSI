@@ -1,36 +1,16 @@
-import pg from 'pg'
+import pg from "pg";
+import dotenv from "dotenv";
 
-// Fail at boot with one clear line, rather than with a mystery 500 an hour
-// later. The commonest deployment mistake is setting a variable in .env on your
-// laptop and never setting it in the host's dashboard.
-if (!process.env.DATABASE_URL) {
-  console.error(
-    'DATABASE_URL is not set. Locally: copy .env.example to .env and fill it in. ' +
-    'On a host: add it in the dashboard, then redeploy.'
-  )
-  process.exit(1)
-}
+dotenv.config();
 
-// A local PostgreSQL has no TLS configured. Every managed host requires it and
-// presents a certificate chain Node does not trust out of the box, which is why
-// rejectUnauthorized is false: the connection is still encrypted, it is just not
-// verifying who is on the other end. That is the standard tradeoff for a
-// student project. If your host publishes a CA certificate, pass it as
-// ssl: { ca: readFileSync('ca.pem') } instead and say so in your journal.
-const isLocal =
-  process.env.DATABASE_URL.includes('localhost') ||
-  process.env.DATABASE_URL.includes('127.0.0.1')
+const { Pool } = pg;
 
-export const pool = new pg.Pool({
+// DATABASE_URL comes from .env locally, or from your host's
+// environment variables once deployed (Render, Railway, Neon, etc).
+// Example: postgres://postgres:postgres@localhost:5432/prime_meridian
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: isLocal ? false : { rejectUnauthorized: false },
-  max: 5,                          // free tiers allow far fewer than you think
-  idleTimeoutMillis: 10_000,       // hand connections back quickly
-  connectionTimeoutMillis: 5_000,  // fail fast rather than hanging the request
-})
-
-// A pool whose server goes away should say so once, loudly, not take the
-// process down.
-pool.on('error', (error) => {
-  console.error('Unexpected database pool error:', error.message)
-})
+  ssl: process.env.DATABASE_URL?.includes("localhost")
+    ? false
+    : { rejectUnauthorized: false }, // most hosted Postgres providers require SSL
+});
