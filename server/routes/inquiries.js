@@ -13,6 +13,9 @@ inquiriesRouter.post("/", async (req, res, next) => {
     if (!name || !email || !message) {
       return res.status(400).json({ error: "name, email, and message are required" });
     }
+    if (phone && !/^(09|\+639)\d{9}$/.test(phone.trim())) {
+      return res.status(400).json({ error: "phone must be a mobile number like 09123456789 or +639123456789" });
+    }
     if (propertyId) {
       const property = await Properties.getById(propertyId);
       if (!property) return res.status(400).json({ error: "propertyId does not match a known property" });
