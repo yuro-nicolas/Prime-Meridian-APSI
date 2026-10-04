@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api } from "../lib/api";
+import { PHONE, PHONE_HREF } from "../lib/contact";
 import "./Contact.css";
 
 export function Contact() {
@@ -10,6 +11,7 @@ export function Contact() {
   const [property, setProperty] = useState(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState(null); // { ok: true } | { ok: false, message }
@@ -38,10 +40,11 @@ export function Contact() {
         propertyId: propertyId ? Number(propertyId) : null,
         name: name.trim(),
         email: email.trim(),
+        phone: phone.trim(),
         message: message.trim(),
       });
       setResult({ ok: true, name: name.trim() });
-      setName(""); setEmail(""); setMessage("");
+      setName(""); setEmail(""); setPhone(""); setMessage("");
     } catch (err) {
       setResult({ ok: false, message: err.message });
     } finally {
@@ -75,6 +78,11 @@ export function Contact() {
                 value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="form-field">
+              <label htmlFor="cf-phone">Phone</label>
+              <input id="cf-phone" type="tel" placeholder="09123456789"
+                value={phone} onChange={(e) => setPhone(e.target.value)} />
+            </div>
+            <div className="form-field">
               <label htmlFor="cf-message">Message</label>
               <textarea id="cf-message" required placeholder={placeholder}
                 value={message} onChange={(e) => setMessage(e.target.value)} />
@@ -100,7 +108,7 @@ export function Contact() {
         <div className="contact-photo">
           <div className="contact-photo__scrim" />
           <div className="contact-photo__content">
-            <a href="tel:+14155550148" className="contact-photo__phone">(415) 555-0148</a>
+           <a href={PHONE_HREF} className="contact-photo__phone">{PHONE}</a>
             <p><strong>Response time.</strong> Jonh Doe typically replies within one business day.</p>
             <p>
               <strong>Dispute matters.</strong> If you're contacting us about an active dispute,
