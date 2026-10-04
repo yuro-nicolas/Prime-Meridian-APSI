@@ -103,17 +103,6 @@ tested every change and changed what the AI gave me when it was wrong (section 2
   exist.
 - **Commit:** [ab41457](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ab41457c193e053ae0835dd50f551b893f4165b5), [a777f8d](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a777f8d6486b38d505810fd74a9dd36494e50e8c), [d6464bf](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/d6464bf0e134bb613537440c642922522425bba3)
 
-### 2026-10-04 - Removing the parallax background
-- **Tool:** Claude
-- **What I asked for:** Remove the scrolling parallax effect on the home page
-  backgrounds.
-- **What it gave back:** Which files used the `useParallax` hook, and what to
-  change so nothing still imported it.
-- **What I kept, what I changed, and why:** Instead of keeping an empty hook, I
-  deleted `useParallax.js` completely and removed its imports and refs myself, so
-  there is no dead code left.
-- **Commit:** [a1ea80f](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a1ea80f3cdb8e1c5178d8041725159f98bf421aa), [125fa81](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/125fa816a557393e67ee2499b1bc32a1f5535782), [2915730](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/2915730c100d41cc61f1f182c3b29d77a75cff28)
-
 ### 2026-10-04 - "Delete all" in the admin inbox
 - **Tool:** Claude
 - **What I asked for:** Fix "Delete all" so it does not delete unread messages.
