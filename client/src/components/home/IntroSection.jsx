@@ -19,7 +19,7 @@ export function IntroSection() {
       <div className="shell intro-section__content">
         <h2>Buying, selling, or untangling a dispute — one broker, start to finish.</h2>
         <p className="intro-section__lede">
-          Marcus Reyes handles residential and commercial transactions and, when a deal or a
+         John Doe handles residential and commercial transactions and, when a deal or a
           title runs into conflict, the dispute resolution that follows — so you're never
           handed off partway through.
         </p>
