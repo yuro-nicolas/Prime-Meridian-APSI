@@ -103,6 +103,17 @@ tested every change and changed what the AI gave me when it was wrong (section 2
   exist.
 - **Commit:** [ab41457](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ab41457c193e053ae0835dd50f551b893f4165b5), [a777f8d](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a777f8d6486b38d505810fd74a9dd36494e50e8c), [d6464bf](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/d6464bf0e134bb613537440c642922522425bba3)
 
+### 2026-10-04 - Removing the parallax background
+- **Tool:** Claude
+- **What I asked for:** Remove the scrolling parallax effect on the home page
+  backgrounds.
+- **What it gave back:** Which files used the `useParallax` hook, and what to
+  change so nothing still imported it.
+- **What I kept, what I changed, and why:** Instead of keeping an empty hook, I
+  deleted `useParallax.js` completely and removed its imports and refs myself, so
+  there is no dead code left.
+- **Commit:** [a1ea80f](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a1ea80f3cdb8e1c5178d8041725159f98bf421aa), [125fa81](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/125fa816a557393e67ee2499b1bc32a1f5535782), [2915730](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/2915730c100d41cc61f1f182c3b29d77a75cff28)
+
 ### 2026-10-04 - "Delete all" in the admin inbox
 - **Tool:** Claude
 - **What I asked for:** Fix "Delete all" so it does not delete unread messages.
@@ -171,43 +182,76 @@ tested every change and changed what the AI gave me when it was wrong (section 2
 I wrote the first version of the site myself, and many of the files started as
 my code before AI rewrote or extended them. These are the parts that are mine.
 
-### Written by me
+### Written by me / my decisions
 
-- **File:** `client/src/pages/index.html`, `listings.html`, `about.html`,
-  `contact.html`, `listing-1.html` to `listing-6.html` (the original static site)
-- **Commit:** [071a556](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/071a55603091897beb4e5f532f0e8afdc88deca3)
-- **What it does and why it is built this way:** I originally built these as
-  separate static HTML pages for the main sections of the site: Home, Listings,
-  About Us, Contact and individual listing pages. I kept the header and
-  navigation consistent across the pages, and the listing cards linked directly
-  to their corresponding listing pages. I later moved the site to React because
-  maintaining the same header, footer and page structure separately in every
-  HTML file was repetitive. React let me reuse those parts as components and
-  use routing for the different pages instead of keeping a collection of
-  duplicated HTML files.
+I do not consider the project to be an AI-generated project that I simply copied and submitted. I used AI heavily as a programming assistant, but I was the person deciding what the website should do, what information it should contain, what changes to keep, what to reject, and what to fix after testing. The repository history also shows that a number of changes were made after I reviewed the generated code.
 
-- **File:** `server/db/seed.sql` (the real listing, property `0001`)
-- **Commit:** [963b64d](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/963b64d8306689571bbf35f3db7df5fa9b704b3b)
-- **What it does and why it is built this way:** The `INSERT` names its
-  columns explicitly so the values are tied to the correct fields instead of
-  depending on the table's column order. The property with code `0001` contains
-  the real listing information I entered for the project, including its
-  location, price, floor and lot areas, bedrooms, bathrooms and other features.
-  The other rows are sample properties used to populate and test the listings
-  interface. I set `is_public` to `true` for property `0001` because it is the
-  listing I want displayed on the public site, while the sample listings stay
-  `false` so they can remain available for testing without being treated as
-  public listings.
+The following are the main parts I consider my own work, decisions, or direct edits. Some of these files were later extended or refactored with AI assistance, so this section does **not** mean that every line in these files was typed entirely by me. It means that I contributed the original work, requirements, content, decisions, or corrections described below.
 
-- **File:** `client/src/pages/AboutUs.jsx`, `client/src/pages/Contact.jsx` (my edits)
-- **Commit:** [e8c4e49](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/e8c4e49a061b4297a3723dd00bfcb7fcb6de668f), [c9a1b16](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/c9a1b16ff8a63a2d3b826f0fb957012f1f92fd76), [ff0bb0e](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ff0bb0e21891bc635c9e4f479f4b872f7c40c6ed)
-- **What it does and why it is built this way:** In `AboutUs.jsx`, I changed
-  the broker details and license information so the page reflects the details
-  I wanted for the project instead of leaving the template information
-  unchanged. In `Contact.jsx`, I corrected the response-time and confirmation
-  text so the messages shown to users are properly written. These were my own
-  edits to the generated React pages rather than changes I simply accepted
-  without checking.
+- **Original website concept and requirements**
+  - I decided that the project would be a real-estate website for Prime Meridian Realty rather than a generic template.
+  - I decided that visitors should be able to browse public properties, filter and sort listings, open an individual property, view its gallery, and submit inquiries.
+  - I decided that there should be a separate administrator area for managing listings and reading inquiries.
+  - I decided which pages the site needed: Home, Listings, Listing Detail, About Us, Contact, Not Found, and the admin pages.
+  - I also decided which information should be public and which functions should require an administrator. The final README describes these behaviors and the React/Express/PostgreSQL architecture.
+
+- **Original static website**
+  - **Files:** `client/src/pages/index.html`, `listings.html`, `about.html`, `contact.html`, `listing-1.html` to `listing-6.html`
+  - I originally built the first version as static HTML before moving it to React.
+  - I created the initial page structure, navigation between pages, listing-page organization, and the content/layout that I wanted before the React conversion.
+  - I decided to move to React because repeating the same header, footer and page structure across separate HTML files became difficult to maintain.
+
+- **Initial visual direction and content**
+  - I decided the overall visual direction of the site, including the real-estate presentation, property-card layout, navigation structure, page organization, and the information that should appear on property pages.
+  - I reviewed the generated CSS and kept or changed it based on whether it matched the design I wanted. The CSS therefore should not be described as something I blindly copied from AI.
+  - I also decided to remove the parallax background effect when I no longer wanted it. Instead of leaving an unused hook behind, I had `useParallax.js` and its related imports/refs removed so the project would not contain unnecessary dead code.
+
+- **Business/profile information and wording**
+  - **Files:** `client/src/pages/AboutUs.jsx`, `client/src/pages/Contact.jsx`
+  - I replaced template broker information with the information I wanted for the project.
+  - I corrected the broker name/license details and fixed wording and spacing in contact/confirmation messages.
+  - These are examples of me reviewing generated pages and changing the content rather than accepting the template output as-is.
+
+- **Database and application decisions**
+  - I decided that listings and inquiries should be stored in PostgreSQL instead of being hard-coded only in the frontend.
+  - I decided which fields the property and inquiry records need and how public/hidden listings should behave.
+  - I decided that the frontend should communicate with the Express API using JSON and that database operations should use parameterized SQL.
+  - I decided to use Neon for PostgreSQL, Render for the API, and Vercel for the React client. The repository README documents this final architecture.
+
+- **Admin functionality**
+  - I decided that the administrator should be able to add, edit, hide and delete listings and manage inquiry messages.
+  - I decided that the inquiry inbox should distinguish unread and read messages.
+  - When I discovered that the original "Delete all" behavior could delete unread messages, I changed the behavior so the operation must specify `read` or `unread` and only deletes the messages in that category. This was a functional decision I made after testing the application.
+
+- **Security decisions and corrections**
+  - I reviewed the security checklist instead of assuming the AI-generated implementation was safe.
+  - I rejected the CORS configuration that silently fell back to `*` and changed it so the API requires the configured `CORS_ORIGIN`.
+  - I removed an unnecessary GitHub Pages workflow.
+  - I changed the repository commit identity/history so an old personal email was not left in the public commit history.
+  - I created a limited database user instead of treating the database account as unrestricted.
+  - I accepted that the Neon free-plan database exposure limitation could not honestly be marked as fixed, so I left that item as a limitation instead of falsely claiming the project was completely secure.
+
+- **Phone/contact feature**
+  - I decided that the Contact page should collect a phone number and that the same business phone number should appear consistently in the site's footers.
+  - I kept the phone number in `client/src/lib/contact.js` so it can be changed in one place instead of being duplicated throughout the frontend.
+  - After testing the new phone field, I noticed that `type="tel"` alone did not actually validate the value. I therefore added a browser-side pattern and matching server-side validation for Philippine mobile-number formats.
+
+- **Testing and correcting AI output**
+  - I tested the application after changes instead of assuming generated code worked.
+  - I found the CORS problem through the security review, the unsafe delete-all behavior while testing the admin inbox, and the weak phone validation by entering invalid input.
+  - When AI-generated files did not match my working copy, I compared them, replaced the incorrect files, and rebuilt/restarted the application to verify the result.
+  - This is why the repository contains both AI-assisted implementation commits and later corrective commits.
+
+- **Documentation and project organization**
+  - I decided what the README needed to communicate about setup, environment variables, API routes, deployment, architecture and security.
+  - I reviewed the generated documentation, added my own screenshots, and removed documentation links that pointed to files that did not exist.
+  - I also decided that this `AI-USAGE.md` file should distinguish between AI assistance and my own decisions, corrections and understanding rather than pretending that AI was not used.
+
+### What I mean by "written by me"
+
+For this disclosure, "written by me" does not mean that no AI ever touched the file. It means that I either wrote the original version, supplied the actual project-specific content, made the design/behavior decision, or directly edited and corrected the implementation. AI was often used to generate code, explain code, refactor code, or help me find problems. I then reviewed the result and tested it.
+
+This distinction matters because a large part of the project is **AI-assisted implementation of requirements and decisions that I made**, rather than an AI independently deciding what the final application should be. I am not claiming that I manually typed every React component, Express route, SQL query, or CSS rule. I am claiming responsibility for the project structure, requirements, project-specific content, final decisions, testing, corrections, and understanding of the resulting code.
 
 ### The AI-written part I understand best
 
