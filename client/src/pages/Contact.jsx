@@ -79,7 +79,9 @@ export function Contact() {
             </div>
             <div className="form-field">
               <label htmlFor="cf-phone">Phone</label>
-              <input id="cf-phone" type="tel" placeholder="09123456789"
+               <input id="cf-phone" type="tel" inputMode="tel" placeholder="09123456789"
+                pattern="(09|\+639)[0-9]{9}" maxLength={13}
+                title="Enter a mobile number like 09123456789 or +639123456789"
                 value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
             <div className="form-field">
