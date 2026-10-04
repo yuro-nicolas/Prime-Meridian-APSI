@@ -22,7 +22,7 @@ const SERVICES = [
 ];
 
 const CREDENTIALS = [
-  "Licensed Real Estate Broker — License #RE-048213",
+  "Licensed Real Estate Broker — License #RE-013245",
   "Certified Residential Specialist (CRS)",
   "Accredited Real Estate Mediator, State Association of Realtors",
   "14 years in residential and commercial transactions",
@@ -95,10 +95,10 @@ export function AboutUs() {
             <div className="section__head">
               <h2>Meet the broker</h2>
             </div>
-            <h3 className="broker__name">Marcus Reyes</h3>
+            <h3 className="broker__name">John Doe</h3>
             <div className="broker__title">Principal Broker, Prime Meridian Realty</div>
             <p className="broker__bio">
-              Marcus has spent fourteen years on both sides of the closing table — negotiating
+              John Doe has spent fourteen years on both sides of the closing table — negotiating
               transactions and, when they go sideways, resolving the disputes that come after.
               That dual view shapes how he prices, markets, and papers every deal he touches.
             </p>
