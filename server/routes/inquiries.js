@@ -34,11 +34,17 @@ inquiriesRouter.get("/", requireAdmin, async (req, res, next) => {
   }
 });
 
-// DELETE /inquiries — admin only, deletes every message at once.
+// DELETE /inquiries?status=read|unread — admin only. Deletes every
+// read message or every unread message, never both, so clearing the
+// Read tab can't wipe messages that haven't been looked at yet.
 inquiriesRouter.delete("/", requireAdmin, async (req, res, next) => {
+  const { status } = req.query;
+  if (status !== "read" && status !== "unread") {
+    return res.status(400).json({ error: 'status must be "read" or "unread"' });
+  }
   try {
-    await Inquiries.removeAll();
-    res.status(204).send();
+    const deleted = await Inquiries.removeAllByReadState(status === "read");
+    res.json({ deleted });
   } catch (err) {
     next(err);
   }
