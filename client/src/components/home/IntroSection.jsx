@@ -1,5 +1,4 @@
 import { Button } from "../ui/Button";
-import { useParallax } from "../../hooks/useParallax";
 import "./IntroSection.css";
 
 /**
@@ -12,11 +11,10 @@ import "./IntroSection.css";
  * background-attachment:fixed) parallax effect — see useParallax.js.
  */
 export function IntroSection() {
-  const bgRef = useParallax(0.15);
 
   return (
     <section className="intro-section">
-      <div ref={bgRef} className="intro-section__bg" />
+      <div className="intro-section__bg" />
       <div className="intro-section__scrim" />
       <div className="shell intro-section__content">
         <h2>Buying, selling, or untangling a dispute — one broker, start to finish.</h2>
