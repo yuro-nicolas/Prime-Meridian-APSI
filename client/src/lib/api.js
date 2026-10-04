@@ -79,7 +79,7 @@ export const api = {
   listInquiries: () => apiRequest("/inquiries"),
   markInquiryRead: (id, isRead = true) => apiRequest(`/inquiries/${id}`, { method: "PATCH", body: JSON.stringify({ isRead }) }),
   deleteInquiry: (id) => apiRequest(`/inquiries/${id}`, { method: "DELETE" }),
-  deleteAllInquiries: () => apiRequest("/inquiries", { method: "DELETE" }),
+  deleteAllInquiries: (status) => apiRequest(`/inquiries?status=${status}`, { method: "DELETE" }),
 };
 
 export const STATUS_CLASS = {
