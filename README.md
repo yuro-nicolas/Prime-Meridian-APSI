@@ -1,5 +1,7 @@
 # Prime Meridian Realty
 
+[![Made with AI](https://img.shields.io/badge/Made_with-AI_assistance-blue)](AI-USAGE.md)
+
 A full-stack real estate website where visitors browse property listings and send inquiries, and an administrator manages listings and reads messages.
 
 **Live site:** (add Vercel URL)
@@ -228,9 +230,7 @@ The checklist caught that 13 of my commits showed my personal Gmail address as t
 
 ![Built with AI assistance](https://img.shields.io/badge/built%20with-AI%20assistance-0b5fff)
 
-AI assistants (Claude) helped with understanding concepts, troubleshooting, frontend and backend development, reviewing project structure, and improving documentation. I remain responsible for the implementation, decisions, testing and final submitted work.
-
-The full account is in [AI-USAGE.md](AI-USAGE.md).
+I used Claude and other AI assistants heavily. I built the first version myself as static HTML pages and decided what the site should do, then used AI to turn it into React, build the Express API and PostgreSQL database, add the admin login, and help with security and documentation. I tested and corrected everything it gave me. The full account, including where the AI got it wrong and which parts are mine, is in [AI-USAGE.md](AI-USAGE.md).
 
 ## Licence
 
