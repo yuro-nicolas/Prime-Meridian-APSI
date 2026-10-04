@@ -4,10 +4,8 @@
 
 A full-stack real estate website where visitors browse property listings and send inquiries, and an administrator manages listings and reads messages.
 
-**Live site:** (add Vercel URL)
-**API:** (add Render URL)/health
-**Demo video:** (add link in week 3)
-
+**Live site:** https://prime-meridian-olive.vercel.app/
+**API:** https://prime-meridian-6zgr.onrender.com/
 
 ## What it does
 
