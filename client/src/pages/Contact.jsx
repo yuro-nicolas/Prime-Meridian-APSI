@@ -111,7 +111,7 @@ export function Contact() {
           <div className="contact-photo__scrim" />
           <div className="contact-photo__content">
            <a href={PHONE_HREF} className="contact-photo__phone">{PHONE}</a>
-            <p><strong>Response time.</strong> Jonh Doe typically replies within one business day.</p>
+            <p><strong>Response time.</strong> John Doe typically replies within one business day.</p>
             <p>
               <strong>Dispute matters.</strong> If you're contacting us about an active dispute,
               include any case or reference number you already have so it can be routed correctly.
