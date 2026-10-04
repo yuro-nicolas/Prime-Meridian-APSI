@@ -235,3 +235,5 @@ The full account is in [AI-USAGE.md](AI-USAGE.md).
 ## Licence
 
 MIT, see [LICENSE](LICENSE).
+
+Copyright (c) 2026 yuro-nicolas
