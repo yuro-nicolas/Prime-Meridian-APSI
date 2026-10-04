@@ -18,7 +18,10 @@
 .about-company__photo {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-m);
-  background: repeating-linear-gradient(135deg, var(--sage-150) 0px, var(--sage-150) 2px, var(--sage-100) 2px, var(--sage-100) 24px);
+  background-color: var(--sage-150);
+  background-image: url("/images/about-company.jpg");
+  background-size: cover;
+  background-position: center;
 }
 @media (max-width: 900px) {
   .about-company__intro-grid { grid-template-columns: 1fr; }
