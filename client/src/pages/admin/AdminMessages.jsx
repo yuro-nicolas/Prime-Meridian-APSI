@@ -42,10 +42,13 @@ export function AdminMessages() {
     }
   }
 
+  // Deletes only the messages in the tab being viewed (all read, or
+  // all unread), so clearing one tab never touches the other.
   async function handleDeleteAll() {
-    if (!window.confirm(`Delete all ${messages.length} messages? This can't be undone.`)) return;
+    const label = tab === "unread" ? "unread" : "read";
+    if (!window.confirm(`Delete all ${shown.length} ${label} messages? This can't be undone.`)) return;
     try {
-      await api.deleteAllInquiries();
+      await api.deleteAllInquiries(tab);
       setOpenMessage(null);
       await refresh();
     } catch (err) {
