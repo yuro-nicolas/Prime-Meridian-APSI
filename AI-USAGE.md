@@ -189,6 +189,7 @@ I do not consider the project to be an AI-generated project that I simply copied
 The following are the main parts I consider my own work, decisions, or direct edits. Some of these files were later extended or refactored with AI assistance, so this section does **not** mean that every line in these files was typed entirely by me. It means that I contributed the original work, requirements, content, decisions, or corrections described below.
 
 - **Original website concept and requirements**
+  - **Commit:** [071a556](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/071a55603091897beb4e5f532f0e8afdc88deca3)
   - I decided that the project would be a real-estate website for Prime Meridian Realty rather than a generic template.
   - I decided that visitors should be able to browse public properties, filter and sort listings, open an individual property, view its gallery, and submit inquiries.
   - I decided that there should be a separate administrator area for managing listings and reading inquiries.
@@ -197,33 +198,45 @@ The following are the main parts I consider my own work, decisions, or direct ed
 
 - **Original static website**
   - **Files:** `client/src/pages/index.html`, `listings.html`, `about.html`, `contact.html`, `listing-1.html` to `listing-6.html`
+  - **Commit:** [071a556](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/071a55603091897beb4e5f532f0e8afdc88deca3)
   - I originally built the first version as static HTML before moving it to React.
   - I created the initial page structure, navigation between pages, listing-page organization, and the content/layout that I wanted before the React conversion.
   - I decided to move to React because repeating the same header, footer and page structure across separate HTML files became difficult to maintain.
 
 - **Initial visual direction and content**
+  - **Commit:** [0b80603](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/0b8060319b3adfad002f4cc9255400200bacb166), [a1ea80f](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a1ea80f3cdb8e1c5178d8041725159f98bf421aa), [125fa81](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/125fa816a557393e67ee2499b1bc32a1f5535782), [2915730](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/2915730c100d41cc61f1f182c3b29d77a75cff28), [8e13ec8](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/8e13ec885c700842a72f3953f9b9cf4cac5b75f0)
   - I decided the overall visual direction of the site, including the real-estate presentation, property-card layout, navigation structure, page organization, and the information that should appear on property pages.
   - I reviewed the generated CSS and kept or changed it based on whether it matched the design I wanted. The CSS therefore should not be described as something I blindly copied from AI.
   - I also decided to remove the parallax background effect when I no longer wanted it. Instead of leaving an unused hook behind, I had `useParallax.js` and its related imports/refs removed so the project would not contain unnecessary dead code.
 
+- **Real property information**
+  - **File:** `server/db/seed.sql`
+  - **Commit:** [963b64d](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/963b64d8306689571bbf35f3db7df5fa9b704b3b)
+  - I supplied the real details for property `0001` (location, price, property type, lot and floor area, bedrooms, bathrooms, features and description).
+  - I set it to `is_public = true`, while the sample listings stay hidden, so only the real property appears on the public site.
+
 - **Business/profile information and wording**
   - **Files:** `client/src/pages/AboutUs.jsx`, `client/src/pages/Contact.jsx`
+  - **Commit:** [e8c4e49](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/e8c4e49a061b4297a3723dd00bfcb7fcb6de668f), [22824e1](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/22824e10ae5345ea76f6dc2d044c98eca2c07279), [9c93dba](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/9c93dbaf02d29650466b4548d353e44f549428db), [c9a1b16](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/c9a1b16ff8a63a2d3b826f0fb957012f1f92fd76), [ff0bb0e](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ff0bb0e21891bc635c9e4f479f4b872f7c40c6ed)
   - I replaced template broker information with the information I wanted for the project.
   - I corrected the broker name/license details and fixed wording and spacing in contact/confirmation messages.
   - These are examples of me reviewing generated pages and changing the content rather than accepting the template output as-is.
 
 - **Database and application decisions**
+  - **Commit:** [f7ffb81](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/f7ffb816b6af4a31a0cbb91d758173269cc641b6), [a7dbc19](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a7dbc19c08190eb7ea71a807986f26c95e80a07f)
   - I decided that listings and inquiries should be stored in PostgreSQL instead of being hard-coded only in the frontend.
   - I decided which fields the property and inquiry records need and how public/hidden listings should behave.
   - I decided that the frontend should communicate with the Express API using JSON and that database operations should use parameterized SQL.
   - I decided to use Neon for PostgreSQL, Render for the API, and Vercel for the React client. The repository README documents this final architecture.
 
 - **Admin functionality**
+  - **Commit:** [f369d3f](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/f369d3f1fcdf87caee72ae7ee91b0e56982c51a7), [73623c4](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/73623c436a3baeeaf85d92ff467091a02f8b30a8), [7e9cd68](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/7e9cd686d6ea3fe6b6ae3218d0be7e53fe78bb76)
   - I decided that the administrator should be able to add, edit, hide and delete listings and manage inquiry messages.
   - I decided that the inquiry inbox should distinguish unread and read messages.
   - When I discovered that the original "Delete all" behavior could delete unread messages, I changed the behavior so the operation must specify `read` or `unread` and only deletes the messages in that category. This was a functional decision I made after testing the application.
 
 - **Security decisions and corrections**
+  - **Commit:** [ac21bd8](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ac21bd826ddec275a316201d4344c1483f2f8049), [ec00c23](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ec00c237a323c4b7b646b133c9a0da8d730cd713)
   - I reviewed the security checklist instead of assuming the AI-generated implementation was safe.
   - I rejected the CORS configuration that silently fell back to `*` and changed it so the API requires the configured `CORS_ORIGIN`.
   - I removed an unnecessary GitHub Pages workflow.
@@ -232,17 +245,20 @@ The following are the main parts I consider my own work, decisions, or direct ed
   - I accepted that the Neon free-plan database exposure limitation could not honestly be marked as fixed, so I left that item as a limitation instead of falsely claiming the project was completely secure.
 
 - **Phone/contact feature**
+  - **Commit:** [fbd22eb](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/fbd22eb4384f632d14e20c000bbd8ae42dc75313), [692c7ff](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/692c7ffb2a10305273e47c6378638317ed663999), [d71cc3e](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/d71cc3e910d26ace2d6ca4e3648e94c9a71cf535), [cc09f5c](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/cc09f5c758e4b0ae8cd5ba2319e8a631f31bccc7)
   - I decided that the Contact page should collect a phone number and that the same business phone number should appear consistently in the site's footers.
   - I kept the phone number in `client/src/lib/contact.js` so it can be changed in one place instead of being duplicated throughout the frontend.
   - After testing the new phone field, I noticed that `type="tel"` alone did not actually validate the value. I therefore added a browser-side pattern and matching server-side validation for Philippine mobile-number formats.
 
 - **Testing and correcting AI output**
+  - **Commit:** [9dc723f](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/9dc723fae883039fdfb2863b8aa25aa4cf3d6e40), [a830174](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a830174a85736a393cae32baf50095ff810b8fb3), [1b1a11c](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/1b1a11c4c687907924b58d8f54b41dce82a66b8b)
   - I tested the application after changes instead of assuming generated code worked.
   - I found the CORS problem through the security review, the unsafe delete-all behavior while testing the admin inbox, and the weak phone validation by entering invalid input.
   - When AI-generated files did not match my working copy, I compared them, replaced the incorrect files, and rebuilt/restarted the application to verify the result.
   - This is why the repository contains both AI-assisted implementation commits and later corrective commits.
 
 - **Documentation and project organization**
+  - **Commit:** [ab41457](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/ab41457c193e053ae0835dd50f551b893f4165b5), [a777f8d](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/a777f8d6486b38d505810fd74a9dd36494e50e8c), [d6464bf](https://github.com/yuro-nicolas/Prime-Meridian-APSI/commit/d6464bf0e134bb613537440c642922522425bba3)
   - I decided what the README needed to communicate about setup, environment variables, API routes, deployment, architecture and security.
   - I reviewed the generated documentation, added my own screenshots, and removed documentation links that pointed to files that did not exist.
   - I also decided that this `AI-USAGE.md` file should distinguish between AI assistance and my own decisions, corrections and understanding rather than pretending that AI was not used.
