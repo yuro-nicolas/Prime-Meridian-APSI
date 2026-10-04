@@ -82,7 +82,10 @@ export function ConnectModal({ onClose, propertyContext = null, size = "default"
               </div>
               <div className="form-field">
                 <label htmlFor="cm-phone">Phone</label>
-                <input id="cm-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                 <input id="cm-phone" type="tel" inputMode="tel" placeholder="09123456789"
+                  pattern="(09|\+639)[0-9]{9}" maxLength={13}
+                  title="Enter a mobile number like 09123456789 or +639123456789"
+                  value={phone} onChange={(e) => setPhone(e.target.value)} />
               </div>
               {!propertyContext && (
                 <div className="form-field">
