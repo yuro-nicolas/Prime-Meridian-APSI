@@ -36,7 +36,12 @@ export async function remove(id) {
   return rows[0] || null;
 }
 
-export async function removeAll() {
-  const { rows } = await pool.query("DELETE FROM inquiries RETURNING id");
+// Deletes every message that is read (isRead = true) or unread
+// (isRead = false), never both at once.
+export async function removeAllByReadState(isRead) {
+  const { rows } = await pool.query(
+    "DELETE FROM inquiries WHERE is_read = $1 RETURNING id",
+    [isRead]
+  );
   return rows.length;
 }
