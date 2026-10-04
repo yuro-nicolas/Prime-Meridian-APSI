@@ -1,4 +1,5 @@
 import { Button } from "../ui/Button";
+import { PHONE, PHONE_HREF } from "../../lib/contact";
 import "./WorkWithUs.css";
 
 const VALUE_PROPS = [
@@ -71,7 +72,7 @@ export function WorkWithUs() {
       <div className="work-with-us__footer-strip" data-footer-boundary>
         <div className="shell work-with-us__footer-row">
           <span>&copy; {new Date().getFullYear()} Prime Meridian Realty. Licensed real estate brokerage.</span>
-          <a href="tel:+14155550148" className="work-with-us__phone">(415) 555-0148</a>
+          <a href={PHONE_HREF} className="work-with-us__phone">{PHONE}</a>
         </div>
       </div>
     </section>
