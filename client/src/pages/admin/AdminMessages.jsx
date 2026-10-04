@@ -67,9 +67,9 @@ export function AdminMessages() {
           <h2>Messages</h2>
           <p>Everything submitted through the Contact page and the "Let's Connect" popup lands here.</p>
         </div>
-        {messages.length > 0 && (
+       {shown.length > 0 && (
           <button className="btn btn--ghost admin-card__delete" onClick={handleDeleteAll}>
-            Delete all
+            Delete all {tab === "unread" ? "unread" : "read"}
           </button>
         )}
       </div>
