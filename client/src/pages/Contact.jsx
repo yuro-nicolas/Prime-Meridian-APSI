@@ -96,7 +96,7 @@ export function Contact() {
 
           {result?.ok && (
             <div className="confirm">
-              <strong>Message sent.</strong> Thanks, {result.name || "there"} —John Doe typically
+              <strong>Message sent.</strong> Thanks, {result.name || "there"} — John Doe typically
               responds within one business day.
             </div>
           )}
