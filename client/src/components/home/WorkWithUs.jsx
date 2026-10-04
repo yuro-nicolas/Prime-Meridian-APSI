@@ -1,5 +1,4 @@
 import { Button } from "../ui/Button";
-import { useParallax } from "../../hooks/useParallax";
 import "./WorkWithUs.css";
 
 const VALUE_PROPS = [
@@ -36,7 +35,6 @@ const VALUE_PROPS = [
  * Footer instead — see Layout.jsx.
  */
 export function WorkWithUs() {
-  const bgRef = useParallax(0.15);
 
   return (
     <section className="work-with-us">
@@ -59,7 +57,7 @@ export function WorkWithUs() {
       </div>
 
       <div className="work-with-us__banner">
-        <div ref={bgRef} className="work-with-us__banner-bg" />
+        <div className="work-with-us__banner-bg" />
         <div className="work-with-us__banner-scrim" />
         <div className="work-with-us__banner-content">
           <div className="work-with-us__wordmark">Prime Meridian Realty</div>
