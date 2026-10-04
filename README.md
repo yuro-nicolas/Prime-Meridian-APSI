@@ -85,7 +85,7 @@ All request and response bodies are JSON. Admin routes need the header `Authoriz
 | GET | `/inquiries` | admin | list all messages |
 | PATCH | `/inquiries/:id` | admin | mark read or unread: `{ isRead }` |
 | DELETE | `/inquiries/:id` | admin | delete one message |
-| DELETE | `/inquiries` | admin | delete all messages |
+| DELETE | `/inquiries?status=read` or `?status=unread` | admin | delete every read, or every unread, message (never both). Returns `{ deleted }` |
 | POST | `/admin/login` | public | `{ username, password }` returns `{ token }`. 5 failed attempts blocks that IP for 15 minutes |
 | POST | `/admin/logout` | admin | end the session |
 
